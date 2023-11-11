@@ -11,51 +11,47 @@ public class CalculadoraTeste
     }
 
     //Realizando teste de Soma com dois valores inteiros
-    [Fact]
-    public void TestSoma()
+    [Theory]
+    [InlineData (2,3,5)]
+    [InlineData (4,3,7)]
+    public void TestSoma(int valor1, int valor2, int resu)
     {
-        int num1 =2;
-        int num2 = 3;
+        int resultado = _calc.Soma(valor1,valor2);
 
-        int resultado = _calc.Soma(num1,num2);
-
-        Assert.Equal(5,resultado);
+        Assert.Equal(resu,resultado);
     }
 
     //Realizando teste de Subtração com dois valores inteiros
-    [Fact]
-    public void TestSubtracao()
+    [Theory]
+    [InlineData (4,3,1)]
+    [InlineData (44,3,41)]
+    public void TestSubtracao(int valor1, int valor2, int resu)
     {
-        int num1 =4;
-        int num2 = 3;
+        int resultado = _calc.Subtracao(valor1,valor2);
 
-        int resultado = _calc.Subtracao(num1,num2);
-
-        Assert.Equal(1,resultado);
+        Assert.Equal(resu,resultado);
     }
 
     //Realizando teste de Multiplicação com dois valores inteiros
-    [Fact]
-    public void TestMultiplica()
+    [Theory]
+    [InlineData (4,3,12)]
+    [InlineData (4,4,16)]
+    public void TestMultiplica(int valor1, int valor2, int resu)
     {
-        int num1 =2;
-        int num2 = 3;
+        int resultado = _calc.Multiplicacao(valor1,valor2);
 
-        int resultado = _calc.Multiplicacao(num1,num2);
-
-        Assert.Equal(6,resultado);
+        Assert.Equal(resu,resultado);
     }
 
     //Realizando teste de Divisão com dois valores inteiros
-    [Fact]
-    public void TestDivisao()
+    [Theory]
+    [InlineData (21,3,7)]
+    [InlineData (4,4,1)]
+    public void TestDivisao(int valor1, int valor2, int resu)
     {
-        int num1 =6;
-        int num2 = 3;
+        int resultado = _calc.Divisao(valor1,valor2);
 
-        int resultado = _calc.Divisao(num1,num2);
-
-        Assert.Equal(2,resultado);
+        Assert.Equal(resu,resultado);
     }
     //Realizando teste de valores colocados no historico
     [Fact]
